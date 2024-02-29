@@ -1,6 +1,4 @@
-extends Node2D
-@export var rotation_speed : int 
-var is_rotating : bool
+extends Button
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,19 +6,24 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _start_rotating():
-	is_rotating = true
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (is_rotating):
-		transform = transform.rotated_local(rotation_speed)
 	pass
 
 
+func _on_toggled(toggled_on):
+	if toggled_on:
+		text = "Close Door"
+	else:
+		text = "Open Door"
+		
+
+
 func _on_area_2d_body_entered(body):
-	is_rotating = true # Replace with function body.
+	button_pressed = true
+	text = "Close Door"
 
 
 func _on_area_2d_body_exited(body):
-	is_rotating = false # Replace with function body.
+	button_pressed = false
+	text = "Open Door"

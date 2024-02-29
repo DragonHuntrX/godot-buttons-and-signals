@@ -1,5 +1,6 @@
 extends Node2D
 @export var rotation_speed : int 
+var rotating : bool
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +13,12 @@ func _rotate_me():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if rotating:
+		_rotate_me()
+
+func _on_button_button_down():
+	rotating = true # Replace with function body.
 
 
+func _on_button_button_up():
+	rotating = false

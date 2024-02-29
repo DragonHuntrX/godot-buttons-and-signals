@@ -21,5 +21,9 @@ func _process(delta):
 	pass
 
 
+func _on_area_2d_body_entered(body):
+	is_rotating = true # Replace with function body.
 
 
+func _on_area_2d_body_exited(body):
+	is_rotating = false # Replace with function body.
